@@ -6,7 +6,7 @@
 
 1. Клонируйте репозиторий и перейдите в папку проекта:
    ```bash
-   git clone https://github.com
+   git clone [https://github.com](https://github.com/vladislav07070/web-http-lab.git)
    cd web-http-lab
    ```
 
