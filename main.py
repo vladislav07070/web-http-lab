@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 app = FastAPI()
@@ -39,3 +39,11 @@ def add_new_note(note: NoteCreate):
     notes.append(new_note)
     next_id += 1
     return new_note
+
+
+@app.get("/notes/{note_id}")
+def return_note(note_id: int):
+    for note in notes:
+        if note["id"] == note_id:
+            return note
+    raise HTTPException(status_code=404, detail="Note not found")
